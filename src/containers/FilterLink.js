@@ -4,7 +4,7 @@ import Link from '../components/Link';
 
 const FilterLink = connect(
   (state, ownProps) => ({ // mapStateToProps
-    active: ownProps.filter === state.visibilityFilter 
+    active: ownProps.filter === state.visibilityFilter
   }),
   (dispatch, ownProps) => ({ // mapDispatchToProps
     onClick: () => {

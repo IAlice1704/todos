@@ -1,7 +1,8 @@
 import React from 'react';
 
-const Todo = ({ onClick, completed, text }) => ( 
-  <li className={ completed ? 'completed' : '' } >
+
+const Todo = ({ onClick, completed, text, deleteTodo}) => ( 
+  <li  className={ completed ? 'completed' : '' } >
     <div className="view">
       <input 
         onClick={ onClick }
@@ -9,6 +10,8 @@ const Todo = ({ onClick, completed, text }) => (
         type="checkbox" 
         checked={completed}/>
       <label>{text}</label>
+      <button className="destroy" 
+              onClick={deleteTodo}></button> 
     </div>
   </li> 
 );

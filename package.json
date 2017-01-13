@@ -10,7 +10,10 @@
     "react-addons-test-utils": "^15.3.0",
     "react-bootstrap": "^0.30.7",
     "react-css-modules": "^4.1.0",
+    "react-fa": "^4.1.2",
+    "react-icons": "^2.2.3",
     "react-scripts": "^0.6.0",
+    "redux-actions": "^1.2.0",
     "redux-localstorage": "^0.4.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0"

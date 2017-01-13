@@ -1,10 +1,11 @@
 import * as actions from './index'
+import { v4 } from 'node-uuid';
 
 describe('todo actions', () => {
   it('addTodo should create ADD_TODO action', () => {
     expect(actions.addTodo('Use Redux')).toEqual({
       type: 'ADD_TODO',
-      id: 0,
+      id: v4(),
       text: 'Use Redux'
     })
   })

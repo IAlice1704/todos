@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
-import { toggleTodo } from '../actions';
+import { toggleTodo, deleteTodo } from '../actions';
 import TodoList from '../components/TodoList';
+import {bindActionCreators} from 'redux';
+
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -12,15 +14,18 @@ const getVisibleTodos = (todos, filter) => {
       return todos.filter(t => !t.completed);
   }
 }
-const VisibleTodoList = connect(
-  // mapStateToProps
-  (state) => ({
-    todos: getVisibleTodos( state.todos, state.visibilityFilter )
-  }),
-  // mapDispatchToProps
-  (dispatch) => ({
-      onTodoClick: id => { dispatch(toggleTodo(id)) }
-  })
-)(TodoList);
 
-export default VisibleTodoList
+
+  const mapStateToProps = (state) => ({
+    todos: getVisibleTodos( state.todosReducer, 
+    state.visibilityFilterReducer.filter )
+  });
+
+  const mapDispatchToProps = (dispatch) => 
+    bindActionCreators({
+      onTodoClick: toggleTodo,
+      deleteTodo
+    }, dispatch);    
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
